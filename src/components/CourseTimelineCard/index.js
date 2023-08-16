@@ -1,29 +1,38 @@
 import {AiFillClockCircle} from 'react-icons/ai'
 
-import './index.css'
+import {
+  CourseTitleAndDurationContainer,
+  CourseTitle,
+  DurationContainer,
+  Duration,
+  CourseDescription,
+  CourseTagsList,
+  CourseTagItem,
+  CourseTag,
+} from './styledComponents'
 
 const CourseTimelineCard = props => {
   const {courseDetails} = props
-  console.log(courseDetails)
   const {courseTitle, description, duration, tagsList} = courseDetails
+
   return (
-    <div className="course-container">
-      <div>
-        <h1>{courseTitle}</h1>
-        <div>
-          <AiFillClockCircle />
-          <p>{duration}</p>
-        </div>
-      </div>
-      <p>{description}</p>
-      <ul>
+    <>
+      <CourseTitleAndDurationContainer>
+        <CourseTitle>{courseTitle}</CourseTitle>
+        <DurationContainer>
+          <AiFillClockCircle color="#171f46" />
+          <Duration>{duration}</Duration>
+        </DurationContainer>
+      </CourseTitleAndDurationContainer>
+      <CourseDescription>{description}</CourseDescription>
+      <CourseTagsList>
         {tagsList.map(eachTag => (
-          <li>
-            <p> {eachTag.name}</p>
-          </li>
+          <CourseTagItem key={eachTag.id}>
+            <CourseTag>{eachTag.name}</CourseTag>
+          </CourseTagItem>
         ))}
-      </ul>
-    </div>
+      </CourseTagsList>
+    </>
   )
 }
 
