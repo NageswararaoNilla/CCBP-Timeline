@@ -1,1 +1,17 @@
-/* Write your CSS here */
+.app-container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+.chrono-container {
+  width: 1100px;
+  height: 800px;
+}
